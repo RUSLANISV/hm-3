@@ -1,0 +1,456 @@
+Запуск 1 — ./scripts/check.sh
+
+запуск с пустым volume
+ Image check-e8017067-6a2e-4b46-b747-221a08038194-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 558B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 274B done
+#2 DONE 0.0s
+
+#3 [auth] library/python:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#4 [internal] load metadata for docker.io/library/python:3.13-slim
+#4 DONE 1.3s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 67B done
+#5 DONE 0.0s
+
+#6 [1/6] FROM docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90
+#6 resolve docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90 0.0s done
+#6 DONE 0.0s
+
+#7 [internal] load build context
+#7 transferring context: 94B done
+#7 DONE 0.0s
+
+#8 [2/6] WORKDIR /app
+#8 CACHED
+
+#9 [3/6] COPY app/requirements.txt .
+#9 CACHED
+
+#10 [5/6] COPY app/app.py .
+#10 CACHED
+
+#11 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#11 CACHED
+
+#12 [6/6] RUN mkdir -p /data && chown 10001:10001 /data
+#12 CACHED
+
+#13 exporting to image
+#13 exporting layers done
+#13 exporting manifest sha256:de8cbdffaa6162f3182fdcef4a6a00aff9c40f48c985137d2f3ff3075429ec9b done
+#13 exporting config sha256:ca6fb50530c25b167945370057bac7acc220785580e0ca4a928cdd8efe8ca48c done
+#13 exporting attestation manifest sha256:b1a8a5e9180aee22e5af7d9ab6ef693976c6f45690d966e404b78b0dd6c427de done
+#13 exporting manifest list sha256:57aaf5ddb18da4dafd20840b0fb86db67b038ae86b02442a276de02f924863e6 done
+#13 naming to docker.io/library/check-e8017067-6a2e-4b46-b747-221a08038194-app:latest done
+#13 unpacking to docker.io/library/check-e8017067-6a2e-4b46-b747-221a08038194-app:latest done
+#13 DONE 0.0s
+
+#14 resolving provenance for metadata file
+#14 DONE 0.0s
+ Image check-e8017067-6a2e-4b46-b747-221a08038194-app Built 
+ Network check-e8017067-6a2e-4b46-b747-221a08038194_default Creating 
+ Network check-e8017067-6a2e-4b46-b747-221a08038194_default Creating 
+ Volume check-e8017067-6a2e-4b46-b747-221a08038194_redis_data Creating 
+ Volume check-e8017067-6a2e-4b46-b747-221a08038194_redis_data Creating 
+ Volume check-e8017067-6a2e-4b46-b747-221a08038194_redis_data Created 
+ Volume check-e8017067-6a2e-4b46-b747-221a08038194_redis_data Created 
+ Network check-e8017067-6a2e-4b46-b747-221a08038194_default Created 
+ Network check-e8017067-6a2e-4b46-b747-221a08038194_default Created 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Creating 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Created 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-app-1 Creating 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-app-1 Created 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Starting 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Started 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Waiting 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Healthy 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-app-1 Starting 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-app-1 Started 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-app-1 Waiting 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Waiting 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Healthy 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-app-1 Healthy 
+UID 10001, read_only/memory/CPU: true 268435456 1000000000
+GET /: count=0
+POST /increment: count=1
+POST /increment: count=2
+POST /increment: count=3
+GET /: count=3
+
+пересоздание app
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-app-1 Recreate 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-app-1 Recreated 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-app-1 Starting 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-app-1 Started 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-app-1 Waiting 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-app-1 Healthy 
+GET /: count=3
+
+остановка Redis
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Stopping 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Stopped 
+GET /healthz: HTTP 200
+GET /readyz: HTTP 503
+POST /increment: HTTP 503
+
+запуск Redis
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Starting 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Started 
+GET /: count=3
+POST /increment: count=4
+
+копия Redis
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-app-1 Stopping 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-app-1 Stopped 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Stopping 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Stopped 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-redis-run-0b20ea2e431b Creating 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-redis-run-0b20ea2e431b Created 
+Архив /var/folders/03/155q34zd6rv5q3n288jgz1zr0000gn/T//check-e8017067-6a2e-4b46-b747-221a08038194.tar
+
+удаление исходного проекта
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-app-1 Stopping 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-app-1 Stopped 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-app-1 Removing 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-app-1 Removed 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Stopping 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Stopped 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Removing 
+ Container check-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Removed 
+ Volume check-e8017067-6a2e-4b46-b747-221a08038194_redis_data Removing 
+ Network check-e8017067-6a2e-4b46-b747-221a08038194_default Removing 
+ Volume check-e8017067-6a2e-4b46-b747-221a08038194_redis_data Removed 
+ Image check-e8017067-6a2e-4b46-b747-221a08038194-app:latest Removing 
+ Image check-e8017067-6a2e-4b46-b747-221a08038194-app:latest Removed 
+ Network check-e8017067-6a2e-4b46-b747-221a08038194_default Removed 
+
+восстановление из копии
+ Network restore-e8017067-6a2e-4b46-b747-221a08038194_default Creating 
+ Volume restore-e8017067-6a2e-4b46-b747-221a08038194_redis_data Creating 
+ Volume restore-e8017067-6a2e-4b46-b747-221a08038194_redis_data Creating 
+ Network restore-e8017067-6a2e-4b46-b747-221a08038194_default Creating 
+ Volume restore-e8017067-6a2e-4b46-b747-221a08038194_redis_data Created 
+ Volume restore-e8017067-6a2e-4b46-b747-221a08038194_redis_data Created 
+ Network restore-e8017067-6a2e-4b46-b747-221a08038194_default Created 
+ Network restore-e8017067-6a2e-4b46-b747-221a08038194_default Created 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-redis-run-6fe8013c6d36 Creating 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-redis-run-6fe8013c6d36 Created 
+ Image restore-e8017067-6a2e-4b46-b747-221a08038194-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 562B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 274B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.13-slim
+#3 DONE 0.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 67B done
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90
+#5 resolve docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 94B done
+#6 DONE 0.0s
+
+#7 [2/6] WORKDIR /app
+#7 CACHED
+
+#8 [3/6] COPY app/requirements.txt .
+#8 CACHED
+
+#9 [5/6] COPY app/app.py .
+#9 CACHED
+
+#10 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#10 CACHED
+
+#11 [6/6] RUN mkdir -p /data && chown 10001:10001 /data
+#11 CACHED
+
+#12 exporting to image
+#12 exporting layers done
+#12 exporting manifest sha256:82565724658e318192cc85e663e6b6029e9f550e4689fab82b6c8467ba0b151d done
+#12 exporting config sha256:09ebc4932e74a17e04efb7edf0b839886767e4107aafcf852ce053286b3087e1 done
+#12 exporting attestation manifest sha256:82b4897a001049e033571b742951616f583e65ffebc410251b7aad55fac2558d done
+#12 exporting manifest list sha256:d891be1bfad1ed261a178ed753db7c85f06a4d8247b359273b0c21b78bdb4303 done
+#12 naming to docker.io/library/restore-e8017067-6a2e-4b46-b747-221a08038194-app:latest done
+#12 unpacking to docker.io/library/restore-e8017067-6a2e-4b46-b747-221a08038194-app:latest done
+#12 DONE 0.0s
+
+#13 resolving provenance for metadata file
+#13 DONE 0.0s
+ Image restore-e8017067-6a2e-4b46-b747-221a08038194-app Built 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Creating 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Created 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-app-1 Creating 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-app-1 Created 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Starting 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Started 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Waiting 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Healthy 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-app-1 Starting 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-app-1 Started 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Waiting 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-app-1 Waiting 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Healthy 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-app-1 Healthy 
+GET /: count=4
+POST /increment: count=5
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-app-1 Stopping 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-app-1 Stopped 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-app-1 Removing 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-app-1 Removed 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Stopping 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Stopped 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Removing 
+ Container restore-e8017067-6a2e-4b46-b747-221a08038194-redis-1 Removed 
+ Volume restore-e8017067-6a2e-4b46-b747-221a08038194_redis_data Removing 
+ Network restore-e8017067-6a2e-4b46-b747-221a08038194_default Removing 
+ Volume restore-e8017067-6a2e-4b46-b747-221a08038194_redis_data Removed 
+ Image restore-e8017067-6a2e-4b46-b747-221a08038194-app:latest Removing 
+ Image restore-e8017067-6a2e-4b46-b747-221a08038194-app:latest Removed 
+ Network restore-e8017067-6a2e-4b46-b747-221a08038194_default Removed 
+
+Проверка прошла
+
+Запуск 2 — ./scripts/check.sh
+
+запуск с пустым volume
+ Image check-f5073107-6b1a-4822-9a13-38630f38b17c-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 558B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 274B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.13-slim
+#3 DONE 0.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 67B done
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90
+#5 resolve docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90 done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 94B done
+#6 DONE 0.0s
+
+#7 [2/6] WORKDIR /app
+#7 CACHED
+
+#8 [5/6] COPY app/app.py .
+#8 CACHED
+
+#9 [3/6] COPY app/requirements.txt .
+#9 CACHED
+
+#10 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#10 CACHED
+
+#11 [6/6] RUN mkdir -p /data && chown 10001:10001 /data
+#11 CACHED
+
+#12 exporting to image
+#12 exporting layers done
+#12 exporting manifest sha256:0632c83a01e7b15f144ee4068d8e701e5595aafb2224e34f08ae83dbfb177ae5 done
+#12 exporting config sha256:a9758ebc80e90d01586a242ea383a4bd6d23cf8945059a66fbf300a2c9848ebe done
+#12 exporting attestation manifest sha256:88707d7b9ee876e836441e1e8ccf3679c9f1c46a4d66aace3c61f1855b1dff82 done
+#12 exporting manifest list sha256:9dd2a5e6a4f09c0cb59ff3cf209271bb6c9040c7b72d23db9342a040562caa1c done
+#12 naming to docker.io/library/check-f5073107-6b1a-4822-9a13-38630f38b17c-app:latest done
+#12 unpacking to docker.io/library/check-f5073107-6b1a-4822-9a13-38630f38b17c-app:latest done
+#12 DONE 0.0s
+
+#13 resolving provenance for metadata file
+#13 DONE 0.0s
+ Image check-f5073107-6b1a-4822-9a13-38630f38b17c-app Built 
+ Network check-f5073107-6b1a-4822-9a13-38630f38b17c_default Creating 
+ Network check-f5073107-6b1a-4822-9a13-38630f38b17c_default Creating 
+ Volume check-f5073107-6b1a-4822-9a13-38630f38b17c_redis_data Creating 
+ Volume check-f5073107-6b1a-4822-9a13-38630f38b17c_redis_data Creating 
+ Volume check-f5073107-6b1a-4822-9a13-38630f38b17c_redis_data Created 
+ Volume check-f5073107-6b1a-4822-9a13-38630f38b17c_redis_data Created 
+ Network check-f5073107-6b1a-4822-9a13-38630f38b17c_default Created 
+ Network check-f5073107-6b1a-4822-9a13-38630f38b17c_default Created 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Creating 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Created 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Creating 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Created 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Starting 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Started 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Waiting 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Healthy 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Starting 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Started 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Waiting 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Waiting 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Healthy 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Healthy 
+UID 10001, read_only/memory/CPU: true 268435456 1000000000
+GET /: count=0
+POST /increment: count=1
+POST /increment: count=2
+POST /increment: count=3
+GET /: count=3
+
+пересоздание app
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Recreate 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Recreated 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Starting 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Started 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Waiting 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Healthy 
+GET /: count=3
+
+остановка Redis
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Stopping 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Stopped 
+GET /healthz: HTTP 200
+GET /readyz: HTTP 503
+POST /increment: HTTP 503
+
+запуск Redis
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Starting 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Started 
+GET /: count=3
+POST /increment: count=4
+
+копия Redis
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Stopping 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Stopped 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Stopping 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Stopped 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-redis-run-dccc2dd6e72f Creating 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-redis-run-dccc2dd6e72f Created 
+Архив /var/folders/03/155q34zd6rv5q3n288jgz1zr0000gn/T//check-f5073107-6b1a-4822-9a13-38630f38b17c.tar
+
+удаление исходного проекта
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Stopping 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Stopped 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Removing 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Removed 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Stopping 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Stopped 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Removing 
+ Container check-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Removed 
+ Volume check-f5073107-6b1a-4822-9a13-38630f38b17c_redis_data Removing 
+ Network check-f5073107-6b1a-4822-9a13-38630f38b17c_default Removing 
+ Volume check-f5073107-6b1a-4822-9a13-38630f38b17c_redis_data Removed 
+ Image check-f5073107-6b1a-4822-9a13-38630f38b17c-app:latest Removing 
+ Image check-f5073107-6b1a-4822-9a13-38630f38b17c-app:latest Removed 
+ Network check-f5073107-6b1a-4822-9a13-38630f38b17c_default Removed 
+
+восстановление из копии
+ Volume restore-f5073107-6b1a-4822-9a13-38630f38b17c_redis_data Creating 
+ Volume restore-f5073107-6b1a-4822-9a13-38630f38b17c_redis_data Creating 
+ Network restore-f5073107-6b1a-4822-9a13-38630f38b17c_default Creating 
+ Network restore-f5073107-6b1a-4822-9a13-38630f38b17c_default Creating 
+ Volume restore-f5073107-6b1a-4822-9a13-38630f38b17c_redis_data Created 
+ Volume restore-f5073107-6b1a-4822-9a13-38630f38b17c_redis_data Created 
+ Network restore-f5073107-6b1a-4822-9a13-38630f38b17c_default Created 
+ Network restore-f5073107-6b1a-4822-9a13-38630f38b17c_default Created 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-redis-run-868d5a649b19 Creating 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-redis-run-868d5a649b19 Created 
+ Image restore-f5073107-6b1a-4822-9a13-38630f38b17c-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 562B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 274B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.13-slim
+#3 DONE 0.3s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 67B done
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90
+#5 resolve docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90 done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 94B done
+#6 DONE 0.0s
+
+#7 [3/6] COPY app/requirements.txt .
+#7 CACHED
+
+#8 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#8 CACHED
+
+#9 [2/6] WORKDIR /app
+#9 CACHED
+
+#10 [5/6] COPY app/app.py .
+#10 CACHED
+
+#11 [6/6] RUN mkdir -p /data && chown 10001:10001 /data
+#11 CACHED
+
+#12 exporting to image
+#12 exporting layers done
+#12 exporting manifest sha256:aa2464ce8d5242e57a2f65cbada089dd86551c79e1779f6cce9deeb24e3cff25 done
+#12 exporting config sha256:2caa1b0a988e3204a089471ad9309234284f1d31976dbd9bfade9e6c8fc1073a done
+#12 exporting attestation manifest sha256:b6d67ee52cba2431d4a89815f6c86bf108744f334215b507871b42057f486cbe done
+#12 exporting manifest list sha256:e03fbe26939f0808240eecd20e10da1964e146d5d3369e5746e56c78fc40c37a done
+#12 naming to docker.io/library/restore-f5073107-6b1a-4822-9a13-38630f38b17c-app:latest done
+#12 unpacking to docker.io/library/restore-f5073107-6b1a-4822-9a13-38630f38b17c-app:latest done
+#12 DONE 0.0s
+
+#13 resolving provenance for metadata file
+#13 DONE 0.0s
+ Image restore-f5073107-6b1a-4822-9a13-38630f38b17c-app Built 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Creating 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Created 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Creating 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Created 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Starting 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Started 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Waiting 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Healthy 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Starting 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Started 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Waiting 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Waiting 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Healthy 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Healthy 
+GET /: count=4
+POST /increment: count=5
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Stopping 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Stopped 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Removing 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-app-1 Removed 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Stopping 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Stopped 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Removing 
+ Container restore-f5073107-6b1a-4822-9a13-38630f38b17c-redis-1 Removed 
+ Network restore-f5073107-6b1a-4822-9a13-38630f38b17c_default Removing 
+ Volume restore-f5073107-6b1a-4822-9a13-38630f38b17c_redis_data Removing 
+ Volume restore-f5073107-6b1a-4822-9a13-38630f38b17c_redis_data Removed 
+ Image restore-f5073107-6b1a-4822-9a13-38630f38b17c-app:latest Removing 
+ Image restore-f5073107-6b1a-4822-9a13-38630f38b17c-app:latest Removed 
+ Network restore-f5073107-6b1a-4822-9a13-38630f38b17c_default Removed 
+
+Проверка прошла
